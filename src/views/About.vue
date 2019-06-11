@@ -54,12 +54,10 @@ export default {
         })
         .then(res => {
           let data = res.data;
-          console.log(data)
           this.token = data.access_token;
         });
     },
     getUser() {
-      console.log("passow " + this.token);
       if (!this.token) {
         return;
       }
@@ -82,9 +80,7 @@ export default {
 
     if (params.code) {
       this.getToken(params.code);
-      setTimeout(() => {
-        this.getUser();
-      }, 500);
+      this.getUser();
     }
   }
 };
